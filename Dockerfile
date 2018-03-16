@@ -18,4 +18,5 @@ WORKDIR /data
 RUN pip install truffleHog
 COPY --from=0 /truffletool /usr/bin/truffletool
 COPY scan.sh /scan.sh
+COPY sensitive-regex.json /sensitive-regex.json
 CMD ["/scan.sh"]

@@ -1,0 +1,4 @@
+{
+    "NAV-Ident": "[A-Ya-y][0-9]{6}",
+    "Fødselsnummer": "[0-9]{11}"
+}
