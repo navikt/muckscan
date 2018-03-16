@@ -1,6 +1,7 @@
 FROM golang:1.9
 WORKDIR /
 COPY truffletool.go .
+RUN go get github.com/spf13/pflag
 RUN go build truffletool.go
 
 FROM ubuntu:16.04

@@ -6,7 +6,11 @@ import (
 	"fmt"
 	"log"
 	"os"
+
+	flag "github.com/spf13/pflag"
 )
+
+var excludedPaths = flag.StringSlice("exclude", []string{}, "list of path names to exclude")
 
 type Truffle struct {
 	Branch       string
@@ -37,7 +41,18 @@ func (t *Truffle) Print() {
 	}
 }
 
+func excluded(t Truffle) bool {
+	for _, s := range *excludedPaths {
+		if t.Path == s {
+			return true
+		}
+	}
+	return false
+}
+
 func main() {
+	flag.Parse()
+
 	// decode json from standard input
 	reader := bufio.NewReader(os.Stdin)
 	decoder := json.NewDecoder(reader)
@@ -48,6 +63,10 @@ func main() {
 		err := decoder.Decode(&t)
 		if err != nil {
 			log.Fatal("fatal error: %s\n", err)
+		}
+
+		if excluded(t) {
+			continue
 		}
 
 		t.Print()
