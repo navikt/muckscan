@@ -1,5 +1,5 @@
-all:
-	docker build -t ambientsound/muckscan .
+docker:
+	docker build -t navikt/muckscan .
 
-parsetool:
-	go build parsetool.go
+truffletool: truffletool.go
+	go build truffletool.go
