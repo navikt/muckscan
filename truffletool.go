@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 
 	flag "github.com/spf13/pflag"
 )
@@ -42,8 +43,9 @@ func (t *Truffle) Print() {
 }
 
 func excluded(t Truffle) bool {
+	_, filename := filepath.Split(t.Path)
 	for _, s := range *excludedPaths {
-		if t.Path == s {
+		if t.Path == s || filename == s {
 			return true
 		}
 	}
