@@ -12,6 +12,9 @@ to discover commits containing
 
 ## Usage
 
+Mount your git repository to the Docker container's `/data` directory, and run
+the container:
+
 ```
 docker run --rm -it -v /path/to/git/repository:/data navikt/muckscan
 ```
