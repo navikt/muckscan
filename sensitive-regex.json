@@ -1,4 +1,4 @@
 {
     "NAV-Ident": "[A-Ya-y][0-9]{6}",
-    "Fødselsnummer": "[0-9]{11}"
+    "Fødselsnummer": "[0123][0-9][01][0-9]{8}"
 }
