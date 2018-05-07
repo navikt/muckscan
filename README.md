@@ -19,8 +19,7 @@ the container:
 docker run --rm -it -v /path/to/git/repository:/data navikt/muckscan
 ```
 
-If Muckscan thinks your repository is clean, the command will exit cleanly and
-give no output.
+If Muckscan thinks your repository is clean, the command will give no output.
 
 When commits containing sensitive data are found, Muckscan will give an output
 similar to this:
@@ -46,6 +45,13 @@ similar to this:
 [*] reasons..: High Entropy (1)
 AAAAB3NzaC1yc2EAAAADAQABAAABAQDkZMeH1wsHd6M5Q7VaA1KPs1Oia78embqES7Lat0U+VF60q2p2...(292 characters truncated)
 ```
+
+### Exit status
+
+Muckscan exits with one of the following values:
+
+* `0` when no sensitive commits are found.
+* `1` otherwise.
 
 ## Building
 

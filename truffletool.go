@@ -128,4 +128,8 @@ func main() {
 	for _, v := range violations {
 		v.Print()
 	}
+
+	if len(violations) > 0 {
+		os.Exit(1)
+	}
 }
