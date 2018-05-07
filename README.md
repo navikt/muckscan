@@ -10,6 +10,13 @@ to discover commits containing
 * RSA private keys,
 * and various other OAuth and API keys.
 
+The configuration specific to NAV can be found in the
+[sensitive regex](sensitive-regex.json) file.
+
+This repository also contains a [wrapper for Truffle Hog](truffletool.go) that
+distills its output to make it more readable and easier to work with in case of
+huge repositories with a lot of sensitive history.
+
 ## Usage
 
 Mount your git repository to the Docker container's `/data` directory, and run
