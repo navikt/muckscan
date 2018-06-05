@@ -19,11 +19,17 @@ huge repositories with a lot of sensitive history.
 
 ## Usage
 
-Mount your git repository to the Docker container's `/data` directory, and run
-the container:
+Give the url to your git repository as first parameter to muckscan:
 
 ```
-docker run --rm -it -v /path/to/git/repository:/data navikt/muckscan
+docker run --rm -it navikt/muckscan https://github.com/navikt/muckscan.git
+```
+
+
+A local repository can be mounted in this manner: 
+
+```
+docker run --rm -it -v /path/to/git/repository:/data navikt/muckscan /data
 ```
 
 If Muckscan thinks your repository is clean, the command will give no output.
