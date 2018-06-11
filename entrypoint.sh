@@ -1,12 +1,10 @@
 #!/bin/sh
-set -e
-#set -x
 
 CMD=$1
-if [ "$CMD" = "bash" -o "$CMD" = "sh" ];
-then
+which $CMD >/dev/null 2>&1
+if [ $? -eq 0 ]; then
     shift
-    exec /bin/$CMD "$@"
+    exec $CMD "$@"
 else
-    /scan.sh $@
+    /scan.sh "$@"
 fi
