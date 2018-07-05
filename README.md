@@ -19,18 +19,33 @@ huge repositories with a lot of sensitive history.
 
 ## Usage
 
+### Public repository
 Give the url to your git repository as first parameter to muckscan:
-
 ```
 docker run --rm -it navikt/muckscan https://github.com/navikt/muckscan.git
 ```
 
+### Private repository
+If you need to access a private repository, create a file `~/.git-credentials`
+in the following format:
+```
+https://<username>:<personal_access_token>@github.com/
+```
 
+Then, run the container as you would with a public repository, and mount your
+credentials file into the container:
+```
+docker run -v ~/.git-credentials:/root/.git-credentials (...)
+```
+
+### Local repository
 A local repository can be mounted in this manner: 
 
 ```
 docker run --rm -it -v /path/to/git/repository:/data navikt/muckscan /data
 ```
+
+## Output
 
 If Muckscan thinks your repository is clean, the command will give no output.
 
